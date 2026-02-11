@@ -20,8 +20,6 @@ public class Hooks {
 	                .getTestContext()
 	                .getCurrentXmlTest()
 	                .getParameter("browser");
-
-		 System.out.println("Launching browser: " + browser);
 		
 	    DriverFactory.initDriver(browser);
 	}
