@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.amazon</groupId>
+    <artifactId>Amazon</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <!-- CENTRALIZED VERSION CONTROL -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- FORCE SAME JAVA VERSION EVERYWHERE -->
+        <java.version>22</java.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+
+        <selenium.version>4.15.0</selenium.version>
+        <testng.version>7.8.0</testng.version>
+        <cucumber.version>7.14.0</cucumber.version>
+        <webdrivermanager.version>5.6.3</webdrivermanager.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- Selenium -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <!-- TestNG -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+        <!-- Cucumber -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <!-- WebDriver Manager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+
+        <!-- Extent Reports -->
+        <dependency>
+            <groupId>tech.grasshopper</groupId>
+            <artifactId>extentreports-cucumber7-adapter</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+        
+        <dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.15.1</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>5.2.5</version>
+		</dependency>
+
+		<!-- Allure Cucumber -->
+		<dependency>
+		    <groupId>io.qameta.allure</groupId>
+		    <artifactId>allure-cucumber7-jvm</artifactId>
+		    <version>2.24.0</version>
+		</dependency>
+		
+		<!-- SLF4J Logger Fix -->
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-simple</artifactId>
+		    <version>2.0.9</version>
+		</dependency>
+
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- FORCE COMPILER VERSION (IMPORTANT FIX) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <release>${java.version}</release>
+                    <proc>none</proc>
+                </configuration>
+            </plugin>
+
+            <!-- TestNG execution -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

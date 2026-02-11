@@ -1,0 +1,24 @@
+# Maven build folder
+target/
+
+# Test reports
+reports/
+test-output/
+
+# Compiled files
+*.class
+
+# Logs
+*.log
+
+# Mac files
+.DS_Store
+
+# IDE files
+.project
+.classpath
+.settings/
+.idea/
+
+allure-results/
+
