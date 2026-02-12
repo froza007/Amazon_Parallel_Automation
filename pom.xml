@@ -119,6 +119,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
+                	
+                	<argLine>-Djava.io.tmpdir=/tmp/selenium-temp</argLine>
+                	
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
